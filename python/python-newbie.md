@@ -6,12 +6,12 @@ Python入门
 Python是一门优雅而健壮的编程语言，它继承了传统编译语言的强大性和通用性，同时也
 借鉴了简单脚本和解释语言的易用性。生于1989年，作者是Guido Van Rossum：
 
-![Python之父](https://raw.github.com/isoft-linux/training/master/python/guido-van-rossum.webp)
+![Python之父](https://raw.github.com/isoft-linux/training/master/python/guido-van-rossum.png)
 
 ## 为什么使用Python？
 
-ubiquity、system-config-printer、yum、dnf、koji、django等开源项目都在使用Python！
-为了修复缺陷或做二次开发，需要简单了解Python。
+Ubuntu安装器[ubiquity](https://launchpad.net/ubiquity)、打印机设置[system-config-printer](http://cyberelk.net/tim/software/system-config-printer/)、大黄狗包管理器[yum](http://yum.baseurl.org/)、[dnf](http://dnf.baseurl.org/)、协同打RPM包平台[koji](https://fedoraproject.org/wiki/Koji)、web开发框架[django](https://www.djangoproject.com/)等开源项目都在使用Python！
+为了修复缺陷或[二次开发](https://github.com/isoft-linux/django-mama-cas)，需要简单了解Python。
 
 ## 如何入门？
 
@@ -20,6 +20,37 @@ Hello World
 ```
 print "Hello World"
 ```
+
+Hello World Gtk
+
+```
+import pygtk
+pygtk.require('2.0')
+import gtk
+
+class HelloWorld:
+    def __init__(self):
+        self.window = gtk.Window(gtk.WINDOW_TOPLEVEL)
+        self.window.connect("destroy", self.destroy)
+        self.window.set_size_request(300, 200)
+   
+        self.label = gtk.Label("Hello World")
+        self.label.show()
+        self.window.add(self.label)
+    
+        self.window.show()
+
+    def destroy(self, widget, data=None):
+        gtk.main_quit()
+
+    def main(self):
+        gtk.main()
+
+if __name__ == "__main__":
+    hello = HelloWorld()
+    hello.main()
+```
+
 
 ## 参考资料
 
