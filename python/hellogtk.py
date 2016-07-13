@@ -5,24 +5,18 @@ import pygtk
 pygtk.require('2.0')
 import gtk
 
-class HelloWorld:
-    def __init__(self):
-        self.window = gtk.Window(gtk.WINDOW_TOPLEVEL)
-        self.window.connect("destroy", self.destroy)
-        self.window.set_size_request(300, 200)
+def destroy(widget, data=None):
+    gtk.main_quit()
+
+window = gtk.Window(gtk.WINDOW_TOPLEVEL)
+window.connect("destroy", destroy)
+window.set_size_request(300, 200)
    
-        self.label = gtk.Label("Hello World")
-        self.label.show()
-        self.window.add(self.label)
+label = gtk.Label("Hello World")
+label.show()
+window.add(label)
     
-        self.window.show()
+window.show()
 
-    def destroy(self, widget, data=None):
-        gtk.main_quit()
+gtk.main()
 
-    def main(self):
-        gtk.main()
-
-if __name__ == "__main__":
-    hello = HelloWorld()
-    hello.main()
