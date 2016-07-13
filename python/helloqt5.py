@@ -14,5 +14,5 @@ label = QtWidgets.QLabel("Hello World")
 window.setCentralWidget(label)
 window.show()
 
-app.exec()  # for Python3
+app.exec_()
 

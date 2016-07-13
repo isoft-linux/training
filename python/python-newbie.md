@@ -21,30 +21,64 @@ Hello World
 print "Hello World"
 ```
 
-Hello World Gtk
+Hello World Gtk2
 
 ```
 import pygtk
 pygtk.require('2.0')
 import gtk
 
-def destroy(widget, data=None):
-    gtk.main_quit()
-
 window = gtk.Window(gtk.WINDOW_TOPLEVEL)
-window.connect("destroy", destroy)
+window.connect("delete-event", gtk.main_quit)
 window.set_size_request(300, 200)
    
 label = gtk.Label("Hello World")
-label.show()
 window.add(label)
     
-window.show()
+window.show_all()
 
 gtk.main()
 ```
 
-Hello World Qt
+Hello World Gtk3
+
+```
+import gi
+gi.require_version('Gtk', '3.0')
+from gi.repository import Gtk
+
+window = Gtk.Window()
+window.set_size_request(300, 200)
+window.connect("delete-event", Gtk.main_quit)
+
+label = Gtk.Label("Hello World")
+window.add(label)
+
+window.show_all()
+
+Gtk.main()
+```
+
+Hello World Qt4
+
+```
+import sys
+from PyQt4 import QtGui
+
+app = QtGui.QApplication(sys.argv)
+
+window = QtGui.QMainWindow()
+window.resize(300, 200)
+
+label = QtGui.QLabel("Hello World")
+
+window.setCentralWidget(label)
+window.show()
+
+app.exec_()
+```
+
+Hello World Qt5
 
 ```
 import sys
@@ -60,7 +94,7 @@ label = QtWidgets.QLabel("Hello World")
 window.setCentralWidget(label)
 window.show()
 
-app.exec()
+app.exec_()
 ```
 
 ## 参考资料
