@@ -102,6 +102,15 @@ window.show()
 
 app.exec_()
 ```
+Python也可以用来开发游戏
+
+* [热火吉他手](https://github.com/skyostil/fretsonfire)
+
+![热火吉他手的截屏](https://raw.github.com/isoft-linux/training/master/python/fretsonfire.png)
+
+* [巴拉萨尔野生动物园](http://www.lesfleursdunormal.fr/static/informatique/balazar_safari_photo/index_en.html)
+
+![巴拉萨尔野生动物园的截屏](http://www.lesfleursdunormal.fr/static/_images/bsf/2/6.jpeg)
 
 ## 考试题
 
