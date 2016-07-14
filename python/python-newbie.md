@@ -17,7 +17,7 @@ Python是一门优雅而健壮的编程语言，它继承了传统编译语言�
 Ubuntu安装器[ubiquity](https://launchpad.net/ubiquity)、打印机设置[system-config-printer](http://cyberelk.net/tim/software/system-config-printer/)、大黄狗包管理器[yum](http://yum.baseurl.org/)、YUM替代[dnf](http://dnf.baseurl.org/)、协同打（RPM）包平台[koji](https://fedoraproject.org/wiki/Koji)、web开发框架[django](https://www.djangoproject.com/)等开源项目都在使用Python！
 为了修复缺陷或[二次开发](https://github.com/isoft-linux/django-mama-cas)，需要简单了解Python。
 
-***Python程序员薪水高！***
+Python程序员薪水***高***！
 
 ![Python程序员薪水高](https://raw.github.com/isoft-linux/training/master/python/salaryrange.png)
 
@@ -133,6 +133,95 @@ app.exec_()
 * [pandas](http://pandas.pydata.org/)
 
 ![SciPy信号处理](https://www.packtpub.com/sites/default/files/Article-Images/7702OS_05_03.png)
+
+## 绑定
+
+### 为什么要绑定？
+
+* Linux下大量的库使用C/C++开发
+* Python很***慢***！
+
+![C/C++与Python速度对比](https://isoft-linux.org/wp-content/uploads/2016/07/cc-programs-versus-python-3-186-1.png)
+
+所以PyGtk、SciPy、NumPy等使用C开发，为Python提供绑定。
+
+### 如何写一个最简单的绑定？
+
+* leslie_tz.c
+
+```
+#include <Python.h>
+#include <time.h>
+
+#define INT(v) PyInt_FromLong(v)
+
+static PyObject *gmtoff(PyObject *self, PyObject *args);
+
+static PyMethodDef leslie_tz_methods[] = 
+{
+    {"gmtoff", gmtoff, 0, "Leslie timezone get gmtoff"}, 
+    {NULL, NULL, 0, NULL}
+};
+
+PyMODINIT_FUNC initleslie_tz() 
+{
+    PyObject *m = NULL;
+
+    m = Py_InitModule("leslie_tz", leslie_tz_methods);
+    if (!m)
+        return;
+}
+
+static PyObject *gmtoff(PyObject *self, PyObject *args) 
+{
+    time_t cur_time = time(NULL);
+    struct tm *local_tm = localtime(&cur_time);
+
+    return INT(local_tm->tm_gmtoff / 3600);
+}
+```
+
+* setup.py
+
+```
+from setuptools import setup, Extension
+import os
+import commands
+
+leslie_tz_mod = Extension('leslie_tz', sources = ['leslie_tz.c'])
+
+setup(name='leslie_tz',
+      version='0.1',
+      ext_modules = [leslie_tz_mod],
+      description='Leslie TimeZone Python Binding.',
+      long_description ="""Leslie TimeZone Python Binding.""",
+      author='Leslie Zhai',
+      author_email='xiang.zhai@i-soft.com.cn',
+      license='GPL-3',
+      url="https://github.com/isoft-linux/training/tree/master/python",
+      download_url="git@github.com:isoft-linux/training.git",
+      platforms = ['Linux'],
+)
+```
+
+* hellotz.py
+
+```
+import sys
+import time
+try:
+    import leslie_tz
+except ImportError:
+    if sys.version_info.major != 3:
+        print("--------Please Install Leslie TimeZone Python Binding--------")
+        print("```sudo python2 setup.py install```")
+        print("-------------------------------------------------------------")
+
+if sys.version_info.major == 3:
+    print(int(time.localtime().tm_gmtoff / 3600))
+else:
+    print(leslie_tz.gmtoff())
+```
 
 ## 考试题
 
