@@ -8,7 +8,7 @@ Python是一门优雅而健壮的编程语言，它继承了传统编译语言�
 
 ![Python之父](https://raw.github.com/isoft-linux/training/master/python/guido-van-rossum.png)
 
-## 什么!是Python？
+## 什么不是Python？
 
 ![蟒蛇](https://raw.github.com/isoft-linux/training/master/python/python.jpg)
 
@@ -17,17 +17,19 @@ Python是一门优雅而健壮的编程语言，它继承了传统编译语言�
 Ubuntu安装器[ubiquity](https://launchpad.net/ubiquity)、打印机设置[system-config-printer](http://cyberelk.net/tim/software/system-config-printer/)、大黄狗包管理器[yum](http://yum.baseurl.org/)、YUM替代[dnf](http://dnf.baseurl.org/)、协同打（RPM）包平台[koji](https://fedoraproject.org/wiki/Koji)、web开发框架[django](https://www.djangoproject.com/)等开源项目都在使用Python！
 为了修复缺陷或[二次开发](https://github.com/isoft-linux/django-mama-cas)，需要简单了解Python。
 
+***Python程序员薪水高！***
+
 ![Python程序员薪水高](https://raw.github.com/isoft-linux/training/master/python/salaryrange.png)
 
 ## 如何入门？
 
-Hello World
+### Hello World
 
 ```
 print("Hello World")
 ```
 
-Hello World Gtk2
+### Hello World Gtk2
 
 * [pygtk](http://www.pygtk.org/)
 
@@ -48,7 +50,7 @@ window.show_all()
 gtk.main()
 ```
 
-Hello World Gtk3
+### Hello World Gtk3
 
 * [PyGI](https://wiki.gnome.org/Projects/PyGObject)
 
@@ -69,7 +71,7 @@ window.show_all()
 Gtk.main()
 ```
 
-Hello World Qt4
+### Hello World Qt4
 
 * [PyQt](https://sourceforge.net/projects/pyqt/)
 
@@ -90,7 +92,7 @@ window.show()
 app.exec_()
 ```
 
-Hello World Qt5
+### Hello World Qt5
 
 ```
 import sys
@@ -109,9 +111,9 @@ window.show()
 app.exec_()
 ```
 
-游戏开发
+### 游戏开发
 
-* [PyGame](http://www.pygame.org/hifi.html)
+* [PyGame](http://www.pygame.org/)
 * [Soya3](http://www.lesfleursdunormal.fr/static/informatique/soya3d/index_en.html)
 
 * [热火吉他手](https://github.com/skyostil/fretsonfire)
@@ -121,6 +123,16 @@ app.exec_()
 * [巴拉萨尔野生动物园](http://www.lesfleursdunormal.fr/static/informatique/balazar_safari_photo/index_en.html)
 
 ![巴拉萨尔野生动物园的截屏](http://www.lesfleursdunormal.fr/static/_images/bsf/2/6.jpeg)
+
+### 科学计算
+
+* [SciPy](https://www.scipy.org/)
+* [NumPy](http://www.numpy.org/)
+* [Matplotlib](http://matplotlib.org/)
+* [SymPy](http://www.sympy.org/)
+* [pandas](http://pandas.pydata.org/)
+
+![SciPy信号处理](https://www.packtpub.com/sites/default/files/Article-Images/7702OS_05_03.png)
 
 ## 考试题
 
@@ -153,3 +165,4 @@ def print_directory_contents(sPath):
 * [Python Manual](https://docs.python.org/2/)
 * [15 Essential Python Interview Questions](https://www.codementor.io/python/tutorial/essential-python-interview-questions)
 * [What Programming Language Should a Beginner Learn in 2016?](https://www.codementor.io/learn-programming/beginner-programming-language-job-salary-community)
+* [The Joy of SciPy](http://www.slideshare.net/kammeyer/the-joy-of-scipy)
