@@ -29,6 +29,8 @@ print("Hello World")
 
 Hello World Gtk2
 
+* [pygtk](http://www.pygtk.org/)
+
 ```
 import pygtk
 pygtk.require('2.0')
@@ -48,6 +50,8 @@ gtk.main()
 
 Hello World Gtk3
 
+* [PyGI](https://wiki.gnome.org/Projects/PyGObject)
+
 ```
 import gi
 gi.require_version('Gtk', '3.0')
@@ -66,6 +70,8 @@ Gtk.main()
 ```
 
 Hello World Qt4
+
+* [PyQt](https://sourceforge.net/projects/pyqt/)
 
 ```
 import sys
@@ -102,7 +108,11 @@ window.show()
 
 app.exec_()
 ```
-Python也可以用来开发游戏
+
+游戏开发
+
+* [PyGame](http://www.pygame.org/hifi.html)
+* [Soya3](http://www.lesfleursdunormal.fr/static/informatique/soya3d/index_en.html)
 
 * [热火吉他手](https://github.com/skyostil/fretsonfire)
 
