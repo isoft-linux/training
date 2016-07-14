@@ -246,6 +246,8 @@ def print_directory_contents(sPath):
 
 * 在终端上“画”Hello World
 
+* 参考[pypulseaudio](https://github.com/xiangzhai/pypulseaudio)为[PulseAudio](https://www.freedesktop.org/wiki/Software/PulseAudio/)写一个绑定
+
 ## 参考资料
 
 * [Python核心编程第二版](http://isoft.zhcn.cc/~wuxiaotian/ebooks/Python%20%e6%a0%b8%e5%bf%83%e7%bc%96%e7%a8%8b%20%e7%ac%ac%e4%ba%8c%e7%89%88.pdf)
