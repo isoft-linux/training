@@ -29,6 +29,8 @@ Python程序员薪水***高***！
 print("Hello World")
 ```
 
+Python的基本语法、数据结构、类、常用函数... 请查看[Python Manual](https://docs.python.org/2/)
+
 ### Hello World Gtk2
 
 * [pygtk](http://www.pygtk.org/)
@@ -148,6 +150,16 @@ app.exec_()
 ### 如何写一个最简单的绑定？
 
 * leslie_tz.c
+
+- Python与C数据类型之间的转换，例如：[PyInt_FromLong](https://docs.python.org/2/c-api/int.html#c.PyInt_FromLong)
+- 定义在XXX_methods[]中的函数指针[PyCFunction](https://docs.python.org/2/c-api/structures.html#c.PyCFunction)
+- 定义在XXX_Type中的函数指针[PyTypeObject](https://docs.python.org/2/c-api/type.html#c.PyTypeObject)
+- initXXX构造函数[PyMODINIT_FUNC](https://docs.python.org/2/extending/newtypes.html)
+- [PyArg_ParseTuple](https://docs.python.org/2/c-api/arg.html#c.PyArg_ParseTuple)解析Python脚本传递的参数
+- 数据类型检测，例如：[PyTuple_Check](https://docs.python.org/2/c-api/tuple.html#c.PyTuple_Check)
+- 多线程锁PyGILState_STATE, [PyGILState_Ensure](https://docs.python.org/2/c-api/init.html#c.PyGILState_Ensure), [PyGILState_Release](https://docs.python.org/2/c-api/init.html#c.PyGILState_Release)
+- 在C中调用Python（脚本）函数[PyEval_CallFunction](http://starship.python.net/crew/mwh/toext/calling-python-from-c.html)
+- 引用计数、垃圾回收[Py_INCREF](https://docs.python.org/2/c-api/refcounting.html#c.Py_INCREF), [Py_XDECREF](https://docs.python.org/2/c-api/refcounting.html#c.Py_XDECREF), [Py_DecRef](https://docs.python.org/2/c-api/refcounting.html#c.Py_DECREF)
 
 ```
 #include <Python.h>
