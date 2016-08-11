@@ -31,6 +31,26 @@ print("Hello World")
 
 Python的基本语法、数据结构、类、常用函数... 请查看[Python Manual](https://docs.python.org/2/)
 
+### 
+
+### def func()
+
+```
+def func(foo=None):
+    pass
+```
+
+### class obj()
+
+```
+class obj:
+    def __init__(self):
+        pass
+
+    def __del__(self):
+        pass
+```
+
 ### Hello World Gtk2
 
 * [pygtk](http://www.pygtk.org/)
@@ -234,31 +254,6 @@ if sys.version_info.major == 3:
 else:
     print(leslie_tz.gmtoff())
 ```
-
-## 考试题
-
-* 实现print_directory_contents函数
-
-```
-def print_directory_contents(sPath):
-    """
-    This function takes the name of a directory 
-    and prints out the paths files within that 
-    directory as well as any files contained in 
-    contained directories. 
-
-    This function is similar to os.walk. Please don't
-    use os.walk in your answer. We are interested in your 
-    ability to work with nested structures. 
-    """
-    fill_this_in
-```
-
-* 请把Gtk、Qt的Hello World例子改写成OOP风格
-
-* 在终端上“画”Hello World
-
-* 参考[pypulseaudio](https://github.com/xiangzhai/pypulseaudio)为[PulseAudio](https://www.freedesktop.org/wiki/Software/PulseAudio/)写一个绑定
 
 ## 参考资料
 
