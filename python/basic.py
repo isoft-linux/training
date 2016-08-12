@@ -199,3 +199,54 @@ class obj(object):
 obj1 = obj()
 del obj1
 obj1 = None
+divline()
+
+class Parent(object):
+    __mAttr = 100
+
+    def __init__(self):
+        print("\033[31mCalling parent constructor\033[0m")
+
+    def __del__(self):
+        print("\033[31mCalling parent destructor\033[0m")
+
+    def parentMethod(self):
+        print("\033[31mCalling parent method\033[0m")
+
+    def setAttr(self, attr):
+        self.__mAttr = attr
+
+    def getAttr(self):
+        print("\033[31mCalling parent getAttr %d\033[0m" % (self.__mAttr))
+
+    def myMethod(self):
+        print("\033[31mCalling parent method\033[0m")
+
+class Child(Parent):
+    def __init__(self, a=0, b=0):
+        self.a = a
+        self.b = b
+        print("Calling child constructor")
+
+    def __add__(self, r):
+        return Child(self.a + r.a, self.b + r.b)
+
+    def __str__(self):
+        return 'Child (%d, %d)' % (self.a, self.b)
+
+    def childMethod(self):
+        print("Calling child method")
+
+    def myMethod(self):
+        print("Calling child method")
+
+c = Child()
+c.childMethod()
+c.parentMethod()
+c.setAttr(300)
+c.getAttr()
+c.myMethod()
+
+c1 = Child(2, 10)
+c2 = Child(5, -2)
+print(c1 + c2)
