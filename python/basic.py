@@ -60,7 +60,7 @@ print(x >> 1)   # RS    00000001
 Two's complement
 https://en.wikipedia.org/wiki/Two%27s_complement
 '''
-print(~x)       # INV   11111101 <- 11111100 + 1 <- N(00000011)
+print(~x)       # INV   11111101 <- 11111100 + 1 <- NEG(00000011)
 '''
 Signed number representations
 https://en.wikipedia.org/wiki/Signed_number_representations
