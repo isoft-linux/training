@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 
-import sys
+import sys, math
+from numpy import double
 
 def divline():
     print("\033[32m--------------------------------------D.I.V.I.D.I.N.G.L.I.N.E-----------------------------------------\033[0m")
@@ -22,10 +23,28 @@ continue  finally   is        return
 def       for       lambda    try
 '''
 
-pi = 3.1415926
-print(pi)
-print(int(pi))
-print(float(pi))
+'''
+double precision
+https://en.wikipedia.org/wiki/Double-precision_floating-point_format
+'''
+def testFloat():
+    a = float(1.0 / 81)
+    b = float(0.0)
+    for i in range(729):
+        b += a;
+    print("%.15g" % (b));   # *NOT* 9.00002288818359
+
+testFloat()
+
+def testDouble():
+    a = double(1.0 / 81)
+    b = double(0.0)
+    for i in range(729):
+        b += a;
+    print("%.15g" % (b));
+
+testDouble()
+
 print(complex(1, 1))
 divline()
 
@@ -37,7 +56,80 @@ print(x ^ y)    # XOR   00000001
 print(x & y)    # AND   00000010
 print(x << y)   # LS    00010000
 print(x >> 1)   # RS    00000001
-print(~x)       # INV   11111101
+'''
+Two's complement
+https://en.wikipedia.org/wiki/Two%27s_complement
+'''
+print(~x)       # INV   11111101 <- 11111100 + 1 <- N(00000011)
+'''
+Signed number representations
+https://en.wikipedia.org/wiki/Signed_number_representations
+'''
+n = int(-37)
+print(bin(n))   # 10100101
+print(n.bit_length())
+m = int(-1)
+print(bin(m))   # 11111111
+print(m.bit_length())
+divline()
+
+print(x ** y)   # POW
+print(x // y)   # MOD
+divline()
+
+lists = []
+for i in range(13):
+    lists.append(i)
+lists.append(12)
+lists.append(12)
+print(lists)
+print(set(lists))
+lists.reverse()
+print(lists)
+lists.sort()
+print(lists)
+lists.pop()
+print(lists)
+lists.pop()
+print(lists)
+print(len(lists))
+lists[:] = []
+print(lists)
+
+matrix = [
+        [1, 2, 3, 4],
+        [5, 6, 7, 8],
+        [9, 10, 11, 12],
+        ]
+print(matrix)
+divline()
+
+tup = ('Python', 83, ('Linux', 'KDE'))
+print(tup)
+print(tup * 3)
+divline()
+
+sets = {'Martin Gräßlin', 'David Faure', 'Sebastian Kügler'}
+print(sets)
+a = set('abracadabra')
+b = set('alacazam')
+print(a)
+print(b)
+print(a - b)
+print(a | b)
+print(a & b)
+print(a ^ b)
+divline()
+
+dict = {'Name': 'Martin Gräßlin', 'Age': 27, 'Project': 'KWin'}
+print(dict)
+dict['Age'] = 21
+print(dict)
+print(dict.has_key('Home'))
+dict['Home'] = 'Germany'
+print(dict.has_key('Home'))
+for k, v in dict.items():
+    print(k, v)
 divline()
 
 if __name__ == "__main__":
@@ -62,7 +154,7 @@ def generator(r=3):
         yield i * i
 
 for i in generator():
-    print i
+    print(i)
 divline()
 
 try:
@@ -81,12 +173,21 @@ except:
 divline()
 
 # Replacements for switch statement
+c = "c"
+if c == 'a':
+    print("case 'c':")
+elif c == 'b':
+    print("case 'b':")
+else:
+    print("default:")
+
 def func(c=None):
     return {
-            'a': "case a",
-            'b': "case b",
+            'a': "case 'a':",
+            'b': "case 'b':",
             }.get(c, "default:")
 print(func("c"))
+divline()
 
 class obj(object):
     def __init__(self):
