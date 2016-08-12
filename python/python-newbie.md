@@ -14,7 +14,7 @@ Python是一门优雅而健壮的编程语言，它继承了传统编译语言�
 
 ## 为什么使用Python？
 
-Ubuntu安装器[ubiquity](https://launchpad.net/ubiquity)、打印机设置[system-config-printer](http://cyberelk.net/tim/software/system-config-printer/)、大黄狗包管理器[yum](http://yum.baseurl.org/)、YUM替代[dnf](http://dnf.baseurl.org/)、协同打（RPM）包平台[koji](https://fedoraproject.org/wiki/Koji)、web开发框架[django](https://www.djangoproject.com/)等开源项目都在使用Python！
+Ubuntu安装器[ubiquity](https://launchpad.net/ubiquity)、打印机设置[system-config-printer](http://cyberelk.net/tim/software/system-config-printer/)、大黄狗包管理器[yum](http://yum.baseurl.org/)、YUM替代[dnf](http://dnf.baseurl.org/)、[libvirt](http://libvirt.org/)前端[virt-manager](https://virt-manager.org/)、协同打（RPM）包平台[koji](https://fedoraproject.org/wiki/Koji)、web开发框架[django](https://www.djangoproject.com/)等开源项目都在使用Python！
 为了修复缺陷或[二次开发](https://github.com/isoft-linux/django-mama-cas)，需要简单了解Python。
 
 Python程序员薪水***高***！
@@ -40,10 +40,10 @@ def func(foo=None):
     pass
 ```
 
-### class obj()
+### class obj(object)
 
 ```
-class obj:
+class obj(object):
     def __init__(self):
         pass
 
