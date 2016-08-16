@@ -1,8 +1,7 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 
-import sys, math
-from numpy import double
+import sys
 
 def divline():
     print("\033[32m--------------------------------------D.I.V.I.D.I.N.G.L.I.N.E-----------------------------------------\033[0m")
@@ -32,18 +31,9 @@ def testFloat():
     b = float(0.0)
     for i in range(729):
         b += a;
-    print("%.15g" % (b));   # *NOT* 9.00002288818359
+    print("%.15g" % (b));   # *NOT* 9.00002288818359 in C/C++
 
 testFloat()
-
-def testDouble():
-    a = double(1.0 / 81)
-    b = double(0.0)
-    for i in range(729):
-        b += a;
-    print("%.15g" % (b));
-
-testDouble()
 
 print(complex(1, 1))
 divline()
@@ -201,28 +191,49 @@ del obj1
 obj1 = None
 divline()
 
-class Parent(object):
+class Father(object):
     __mAttr = 100
 
     def __init__(self):
-        print("\033[31mCalling parent constructor\033[0m")
+        print("\033[31mCalling father constructor\033[0m")
 
     def __del__(self):
-        print("\033[31mCalling parent destructor\033[0m")
+        print("\033[31mCalling father destructor\033[0m")
 
-    def parentMethod(self):
-        print("\033[31mCalling parent method\033[0m")
+    def fatherMethod(self):
+        print("\033[31mCalling father method\033[0m")
 
     def setAttr(self, attr):
         self.__mAttr = attr
 
     def getAttr(self):
-        print("\033[31mCalling parent getAttr %d\033[0m" % (self.__mAttr))
+        print("\033[31mCalling father getAttr %d\033[0m" % (self.__mAttr))
 
     def myMethod(self):
-        print("\033[31mCalling parent method\033[0m")
+        print("\033[31mCalling father method\033[0m")
+        
+class Mother(object):
+    __mAttr = 101
 
-class Child(Parent):
+    def __init__(self):
+        print("\033[31mCalling mother constructor\033[0m")
+
+    def __del__(self):
+        print("\033[31mCalling mother destructor\033[0m")
+
+    def motherMethod(self):
+        print("\033[31mCalling mother method\033[0m")
+
+    def setAttr(self, attr):
+        self.__mAttr = attr
+
+    def getAttr(self):
+        print("\033[31mCalling mother getAttr %d\033[0m" % (self.__mAttr))
+
+    def myMethod(self):
+        print("\033[31mCalling mother method\033[0m")
+
+class Child(Father, Mother):
     def __init__(self, a=0, b=0):
         self.a = a
         self.b = b
@@ -242,7 +253,7 @@ class Child(Parent):
 
 c = Child()
 c.childMethod()
-c.parentMethod()
+c.fatherMethod()
 c.setAttr(300)
 c.getAttr()
 c.myMethod()

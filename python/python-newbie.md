@@ -29,67 +29,18 @@ Python程序员薪水***高***！
 print("Hello World")
 ```
 
-Python的基本语法、数据结构、类、常用函数... 请查看[Python Manual](https://docs.python.org/2/)
-
-### 运算符
+### 运算符 && 位操作
 
 ```
 +       -       *       **      /       //      %
 <<      >>      &       |       ^       ~
 <       >       <=      >=      ==      !=      <>
 
-x = int(2)
-y = int(3)
-print(x ** y)   # POW
-print(x // y)   # MOD
-```
-
-### 关键字
-
-```
-and       del       from      not       while
-as        elif      global    or        with
-assert    else      if        pass      yield
-break     except    import    print
-class     exec      in        raise
-continue  finally   is        return
-def       for       lambda    try
-```
-
-### float“达到”了double“双”精度？
-
-```
-def testFloat():
-    a = float(1.0 / 81)
-    b = float(0.0)
-    for i in range(729):
-        b += a;
-    print("%.15g" % (b));   # *NOT* 9.00002288818359 in C/C++
-
-testFloat()
-
-def testDouble():
-    a = double(1.0 / 81)
-    b = double(0.0)
-    for i in range(729):
-        b += a;
-    print("%.15g" % (b));
-
-testDouble()
-```
-
-### 复数
-
-```
-print(complex(1, 1))
-```
-
-### 位操作
-
-```
 x = int(2)      #       00000010
 y = int(3)      #       00000011
 #------------------------------------------------------------------------------
+print(x ** y)   # POW
+print(x // y)   # MOD
 print(x | y)    # OR    00000011
 print(x ^ y)    # XOR   00000001
 print(x & y)    # AND   00000010
@@ -111,6 +62,37 @@ print(n.bit_length())
 m = int(-1)
 print(bin(m))   # 11111111
 print(m.bit_length())
+```
+
+### 关键字
+
+```
+and       del       from      not       while
+as        elif      global    or        with
+assert    else      if        pass      yield
+break     except    import    print
+class     exec      in        raise
+continue  finally   is        return
+def       for       lambda    try
+```
+
+### float
+
+```
+def testFloat():
+    a = float(1.0 / 81)
+    b = float(0.0)
+    for i in range(729):
+        b += a;
+    print("%.15g" % (b));   # *NOT* 9.00002288818359 in C/C++
+
+testFloat()
+```
+
+### 复数
+
+```
+print(complex(1, 1))
 ```
 
 ### list
@@ -310,6 +292,8 @@ c1 = Child(2, 10)
 c2 = Child(5, -2)
 print(c1 + c2)
 ```
+
+Python的基本语法、数据结构、类、常用函数... 请查看[Python Manual](https://docs.python.org/2/)
 
 ### Hello World Gtk2
 
