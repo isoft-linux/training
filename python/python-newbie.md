@@ -36,22 +36,22 @@ print("Hello World")
 <<      >>      &       |       ^       ~
 <       >       <=      >=      ==      !=      <>
 
-x = int(2)      #       00000010
-y = int(3)      #       00000011
+x = int(2)      #       00000000000000000000000000000010
+y = int(3)      #       00000000000000000000000000000011
 #------------------------------------------------------------------------------
 print(x ** y)   # POW
 print(x // y)   # MOD
-print(x | y)    # OR    00000011
-print(x ^ y)    # XOR   00000001
-print(x & y)    # AND   00000010
-print(x << y)   # LS    00010000
-print(x >> 1)   # RS    00000001
+print(x | y)    # OR    00000000000000000000000000000011 -> 3
+print(x ^ y)    # XOR   00000000000000000000000000000001 -> 1
+print(x & y)    # AND   00000000000000000000000000000010 -> 2
+print(x << y)   # LS    00000000000000000000000000010000 -> 16
+print(x >> 1)   # RS    00000000000000000000000000000001 -> 1
 
 '''
 Two's complement
 https://en.wikipedia.org/wiki/Two%27s_complement
 '''
-print(~x)       # INV   11111101 <- 11111100 + 1 <- NEG(00000011)
+print(~x)       # INV   11111101 <- 11111100 + 1 <- NEG(00000011) -> -3
 '''
 Signed number representations
 https://en.wikipedia.org/wiki/Signed_number_representations
@@ -63,6 +63,8 @@ m = int(-1)
 print(bin(m))   # 11111111
 print(m.bit_length())
 ```
+
+编译[leslie_bin.cpp](https://github.com/isoft-linux/training/blob/master/python/leslie_bin.cpp)运行看效果。
 
 ### 关键字
 
@@ -86,13 +88,13 @@ def testFloat():
         b += a;
     print("%.15g" % (b));   # *NOT* 9.00002288818359 in C/C++
 
-testFloat()
+testFloat() # 8.99999999999996
 ```
 
 ### 复数
 
 ```
-print(complex(1, 1))
+print(complex(1, 1))    # (1+1j)
 ```
 
 ### list
@@ -103,34 +105,34 @@ for i in range(13):
     lists.append(i)
 lists.append(12)
 lists.append(12)
-print(lists)
-print(set(lists))
+print(lists)        # [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 12, 12]
+print(set(lists))   # set([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12])
 lists.reverse()
-print(lists)
+print(lists)        # [12, 12, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
 lists.sort()
-print(lists)
+print(lists)        # [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 12, 12]
 lists.pop()
-print(lists)
+print(lists)        # [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 12]
 lists.pop()
-print(lists)
-print(len(lists))
+print(lists)        # [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+print(len(lists))   # 13
 lists[:] = []
-print(lists)
+print(lists)        # []
 
 matrix = [
         [1, 2, 3, 4],
         [5, 6, 7, 8],
         [9, 10, 11, 12],
         ]
-print(matrix)
+print(matrix)       # [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]]
 ```
 
 ### tuple
 
 ```
 tup = ('Python', 83, ('Linux', 'KDE'))
-print(tup)
-print(tup * 3)
+print(tup)      # ('Python', 83, ('Linux', 'KDE'))
+print(tup * 3)  # ('Python', 83, ('Linux', 'KDE'), 'Python', 83, ('Linux', 'KDE'), 'Python', 83, ('Linux', 'KDE'))
 ```
 
 ### set
@@ -140,12 +142,12 @@ sets = {'Martin Gräßlin', 'David Faure', 'Sebastian Kügler'}
 print(sets)
 a = set('abracadabra')
 b = set('alacazam')
-print(a)
-print(b)
-print(a - b)
-print(a | b)
-print(a & b)
-print(a ^ b)
+print(a)        # set(['a', 'r', 'b', 'c', 'd'])
+print(b)        # set(['a', 'c', 'z', 'm', 'l'])
+print(a - b)    # set(['r', 'b', 'd'])
+print(a | b)    # set(['a', 'c', 'b', 'd', 'm', 'l', 'r', 'z'])
+print(a & b)    # set(['a', 'c'])
+print(a ^ b)    # set(['b', 'd', 'm', 'l', 'r', 'z'])
 ```
 
 ### dictionary
@@ -242,28 +244,49 @@ obj1 = obj()
 del obj1
 obj1 = None
 
-class Parent(object):
+class Father(object):
     __mAttr = 100
 
     def __init__(self):
-        print("\033[31mCalling parent constructor\033[0m")
+        print("\033[31mCalling father constructor\033[0m")
 
     def __del__(self):
-        print("\033[31mCalling parent destructor\033[0m")
+        print("\033[31mCalling father destructor\033[0m")
 
-    def parentMethod(self):
-        print("\033[31mCalling parent method\033[0m")
+    def fatherMethod(self):
+        print("\033[31mCalling father method\033[0m")
 
     def setAttr(self, attr):
         self.__mAttr = attr
 
     def getAttr(self):
-        print("\033[31mCalling parent getAttr %d\033[0m" % (self.__mAttr))
+        print("\033[31mCalling father getAttr %d\033[0m" % (self.__mAttr))
 
     def myMethod(self):
-        print("\033[31mCalling parent method\033[0m")
+        print("\033[31mCalling father method\033[0m")
+        
+class Mother(object):
+    __mAttr = 101
 
-class Child(Parent):
+    def __init__(self):
+        print("\033[31mCalling mother constructor\033[0m")
+
+    def __del__(self):
+        print("\033[31mCalling mother destructor\033[0m")
+
+    def motherMethod(self):
+        print("\033[31mCalling mother method\033[0m")
+
+    def setAttr(self, attr):
+        self.__mAttr = attr
+
+    def getAttr(self):
+        print("\033[31mCalling mother getAttr %d\033[0m" % (self.__mAttr))
+
+    def myMethod(self):
+        print("\033[31mCalling mother method\033[0m")
+
+class Child(Father, Mother):
     def __init__(self, a=0, b=0):
         self.a = a
         self.b = b
@@ -283,7 +306,7 @@ class Child(Parent):
 
 c = Child()
 c.childMethod()
-c.parentMethod()
+c.fatherMethod()
 c.setAttr(300)
 c.getAttr()
 c.myMethod()
