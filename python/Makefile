@@ -11,7 +11,7 @@ all: leslie_bin
 
 leslie_bin:
 	$(CXX) -o leslie_bin.o -c $(CXXFLAGS) $(CXXPATH) leslie_bin.cpp
-	$(CXX) $(LIBPATH) -o leslie_bin leslie_bin.o $(LIBS)
+	$(CXX) -o leslie_bin leslie_bin.o $(LIBPATH) $(LIBS)
 
 clean: 
 	rm -rf *.o leslie_bin

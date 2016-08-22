@@ -25,15 +25,24 @@ int main(int argc, char* argv[])
     int x = argv[1] ? atoi(argv[1]) : 2;
     int y = 3;
 
-    std::cout << "x = " << x << std::endl;
+    std::cout << "x = " << x << " y = " << y << std::endl;
     std::bitset<N> x2(x);
-    std::cout << "x(2)  = " << x2 << std::endl;
+    std::cout << "x(2)   = " << x2 << std::endl;
     std::bitset<N> y2(y);
-    std::cout << "y(2)  = " << y2 << std::endl;
+    std::cout << "y(2)   = " << y2 << std::endl;
     std::cout << "----------------------------------------------" << std::endl;
     std::bitset<N> oR(x | y);
-    std::cout << "x | y = " << oR << std::endl;
+    std::cout << "x | y  = " << oR << " -> " << (x | y) << std::endl;
     std::bitset<N> xoR(x ^ y);
-    std::cout << "x ^ y = " << xoR << std::endl;
+    std::cout << "x ^ y  = " << xoR << " -> " << (x ^ y) << std::endl;
+    std::bitset<N> aNd(x & y);
+    std::cout << "x & y  = " << aNd << " -> " << (x & y) << std::endl;
+    std::bitset<N> lS(x << 3);
+    std::cout << "x << 3 = " << lS << " -> " << (x << 3) << std::endl;
+    std::bitset<N> rS(x >> 1);
+    std::cout << "x >> 1 = " << rS << " -> " << (x >> 1) << std::endl;
+    std::bitset<N> iNv(~x);
+    std::cout << "~x     = " << iNv << " -> " << (~x) << std::endl;
+
     return 0;
 }
