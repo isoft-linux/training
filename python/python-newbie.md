@@ -503,6 +503,21 @@ setup(name='leslie_tz',
 )
 ```
 
+```
+python setpy.py build -g
+
+running build
+running build_ext
+building 'leslie_tz' extension
+creating build
+creating build/temp.linux-x86_64-2.7
+gcc -pthread -fno-strict-aliasing -march=x86-64 -mtune=generic -O2 -pipe -fstack-protector-strong -DNDEBUG -march=x86-64 -mtune=generic -O2 -pipe -fstack-protector-strong -fPIC -g -I/usr/include/python2.7 -c leslie_tz.c -o build/temp.linux-x86_64-2.7/leslie_tz.o
+creating build/lib.linux-x86_64-2.7
+gcc -pthread -shared -Wl,-O1,--sort-common,--as-needed,-z,relro -g build/temp.linux-x86_64-2.7/leslie_tz.o -L/usr/lib -lpython2.7 -o build/lib.linux-x86_64-2.7/leslie_tz.so
+
+sudo python setpy.py install
+```
+
 * hellotz.py
 
 ```
@@ -520,6 +535,36 @@ if sys.version_info.major == 3:
     print(int(time.localtime().tm_gmtoff / 3600))
 else:
     print(leslie_tz.gmtoff())
+```
+
+```
+gdb python
+...
+Reading symbols from python2...(no debugging symbols found)...done.
+(gdb) b leslie_tz.c:42
+No symbol table is loaded.  Use the "file" command.
+Make breakpoint pending on future shared library load? (y or [n]) y
+Breakpoint 1 (leslie_tz.c:42) pending.
+(gdb) r ./hellotz.py
+Starting program: /usr/bin/python2 ./hellotz.py
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib/libthread_db.so.1".
+
+Breakpoint 1, gmtoff (self=0x0, args=0x0) at leslie_tz.c:42
+42          time_t cur_time = time(NULL);
+(gdb) p cur_time
+$1 = 140737276740240
+(gdb) n
+41      {
+(gdb) p cur_time
+$2 = 140737276740240
+(gdb) n
+(gdb) q
+A debugging session is active.
+
+        Inferior 1 [process 3994] will be killed.
+
+Quit anyway? (y or n) y
 ```
 
 ## 参考资料
