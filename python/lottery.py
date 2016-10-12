@@ -8,7 +8,7 @@ MIN = 1
 TMP_FILE = "/tmp/kde20years.lot"
 picks = []
 
-print("\033[32mHappy birthday KDE 20 years!\033[0m")
+print("\n\033[32mHappy birthday KDE 20 years!\033[0m\n")
 
 try:
     picks = [int(line.rstrip('\n')) for line in open(TMP_FILE)]
@@ -27,7 +27,7 @@ r = __gen()
 if r < MIN:
     print("Bye ;-)")
 else:
-    print("Congratulate \033[31m%d!\033[0m" % r)
+    print("Congratulate \033[31m%d!\033[0m\n" % r)
 
 try:
     with open(TMP_FILE, 'a') as fptr:
