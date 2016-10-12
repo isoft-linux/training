@@ -1,11 +1,12 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 
+from os.path import expanduser
 from random import randint
 
 MAX = 100
 MIN = 1
-TMP_FILE = "/tmp/kde20years.lot"
+TMP_FILE = expanduser("~") + "/.kde20years.lot"
 picks = []
 
 print("\n\033[32mHappy birthday KDE 20 years!\033[0m\n")
