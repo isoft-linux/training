@@ -29,9 +29,8 @@ if r < MIN:
     print("Bye ;-)")
 else:
     print("Congratulate \033[31m%d!\033[0m\n" % r)
-
-try:
-    with open(TMP_FILE, 'a') as fptr:
-        fptr.write("%d\n" % r)
-except:
-    print("\033[31mERROR!\033[0m")
+    try:
+        with open(TMP_FILE, 'a') as fptr:
+            fptr.write("%d\n" % r)
+    except:
+        print("\033[31mERROR: failed to write file!\033[0m")
