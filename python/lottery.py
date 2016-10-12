@@ -16,7 +16,7 @@ except:
     pass
 
 def __gen():
-    if len(picks) == MAX:
+    if len(picks) > MAX - MIN:
         return 0
     r = randint(MIN, MAX)
     if r in picks:
