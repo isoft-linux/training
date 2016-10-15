@@ -21,7 +21,7 @@ def __gen():
         return 0
     r = randint(MIN, MAX)
     if r in picks:
-        __gen()
+        r = __gen()
     return r
 
 r = __gen()
